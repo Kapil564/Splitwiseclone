@@ -1,0 +1,110 @@
+"use client";
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false);
+    }
+  };
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <button
+              onClick={() => scrollToSection("home")}
+              className="text-2xl font-bold gradient-text"
+            >
+              Splitwise
+            </button>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <button
+              onClick={() => scrollToSection("home")}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Home
+            </button>
+            <button
+              onClick={() => scrollToSection("about")}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              About Us
+            </button>
+            <button
+              onClick={() => scrollToSection("features")}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Features
+            </button>
+          </div>
+
+          {/* Desktop Action Buttons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Button variant="ghost" className="font-medium">
+              Log In
+            </Button>
+            <Button className="font-medium bg-primary hover:bg-primary-dark">
+              Get Started for Free
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </Button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden py-4 space-y-4">
+            <button
+              onClick={() => scrollToSection("home")}
+              className="block w-full text-left px-4 py-2 text-foreground hover:bg-muted rounded-lg transition-colors font-medium"
+            >
+              Home
+            </button>
+            <button
+              onClick={() => scrollToSection("about")}
+              className="block w-full text-left px-4 py-2 text-foreground hover:bg-muted rounded-lg transition-colors font-medium"
+            >
+              About Us
+            </button>
+            <button
+              onClick={() => scrollToSection("features")}
+              className="block w-full text-left px-4 py-2 text-foreground hover:bg-muted rounded-lg transition-colors font-medium"
+            >
+              Features
+            </button>
+            <div className="flex flex-col space-y-2 px-4 pt-4 border-t border-border">
+              <Button variant="ghost" className="w-full font-medium">
+                Log In
+              </Button>
+              <Button className="w-full font-medium bg-primary hover:bg-primary-dark">
+                Get Started for Free
+              </Button>
+            </div>
+          </div>
+        )}
+      </nav>
+    </header>
+  );
+}
