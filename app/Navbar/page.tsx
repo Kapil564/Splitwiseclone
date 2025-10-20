@@ -1,9 +1,11 @@
 "use client";
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-
+import { SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,} from "@clerk/nextjs"
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -52,13 +54,17 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Action Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="font-medium">
-              Log In
-            </Button>
-            <Button className="font-medium bg-primary hover:bg-primary-dark">
-              Get Started for Free
-            </Button>
+          <div className="hidden md:flex items-center space-x-2">
+              <SignedIn>
+                <UserButton/>
+              </SignedIn>
+              <SignedOut>
+                <SignInButton >
+                  <button  className="font-medium px-3 py-2 rounded-3xl hover:bg-sky-400 hover:text-gray-900">
+                  Get Started for free...
+                  </button>
+                </SignInButton>
+              </SignedOut>
           </div>
 
           {/* Mobile Menu Button */}
