@@ -10,6 +10,10 @@
   --accent: #06b6d4;
   --muted: #f1f5f9;
   --border: #e2e8f0;
+  --orange: #ff6b35;
+  --green: #5cb85c;
+  --sidebar-bg: #f8f9fa;
+  --sidebar-hover: #e9ecef;
 }
 
 @theme inline {
@@ -21,6 +25,10 @@
   --color-accent: var(--accent);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-orange: var(--orange);
+  --color-green: var(--green);
+  --color-sidebar-bg: var(--sidebar-bg);
+  --color-sidebar-hover: var(--sidebar-hover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-display: 'Space Grotesk', sans-serif;
@@ -35,8 +43,13 @@
     --primary-dark: #3b82f6;
     --secondary: #a78bfa;
     --accent: #22d3ee;
-    --muted: #1e293b;
-    --border: #334155;
+    --muted: lab(16.39% 1.07 -13.02);
+    --border: #242a34;
+    --orange: #ff7f50;
+    --green: #6fdc6f;
+    --sidebar-bg: #171329;
+    --sidebar-hover: #2a2a2a;
+    
   }
 }
 

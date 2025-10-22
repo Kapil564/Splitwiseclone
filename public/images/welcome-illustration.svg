@@ -1,0 +1,63 @@
+<svg width="200" height="300" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Wine glass character -->
+  <g id="wine-glass-character">
+    <!-- Glass bowl -->
+    <path d="M 60 80 Q 60 120 100 140 Q 140 120 140 80 L 130 50 L 70 50 Z" 
+          stroke="#333" 
+          stroke-width="3" 
+          fill="none"/>
+    
+    <!-- Wine in glass -->
+    <path d="M 70 90 Q 70 110 100 120 Q 130 110 130 90 L 125 70 L 75 70 Z" 
+          fill="#8b5cf6" 
+          opacity="0.6"/>
+    
+    <!-- Stem -->
+    <line x1="100" y1="140" x2="100" y2="200" 
+          stroke="#333" 
+          stroke-width="3"/>
+    
+    <!-- Base -->
+    <ellipse cx="100" cy="200" rx="30" ry="8" 
+             stroke="#333" 
+             stroke-width="3" 
+             fill="none"/>
+    
+    <!-- Smiling face -->
+    <circle cx="85" cy="100" r="3" fill="#333"/>
+    <circle cx="115" cy="100" r="3" fill="#333"/>
+    <path d="M 80 115 Q 100 125 120 115" 
+          stroke="#333" 
+          stroke-width="2" 
+          fill="none" 
+          stroke-linecap="round"/>
+    
+    <!-- Left arm -->
+    <path d="M 60 110 L 30 130 L 25 125" 
+          stroke="#333" 
+          stroke-width="3" 
+          fill="none" 
+          stroke-linecap="round"/>
+    
+    <!-- Right arm -->
+    <path d="M 140 110 L 170 130 L 175 125" 
+          stroke="#333" 
+          stroke-width="3" 
+          fill="none" 
+          stroke-linecap="round"/>
+    
+    <!-- Left leg -->
+    <path d="M 90 200 L 70 260 L 65 260" 
+          stroke="#333" 
+          stroke-width="3" 
+          fill="none" 
+          stroke-linecap="round"/>
+    
+    <!-- Right leg -->
+    <path d="M 110 200 L 130 260 L 135 260" 
+          stroke="#333" 
+          stroke-width="3" 
+          fill="none" 
+          stroke-linecap="round"/>
+  </g>
+</svg>

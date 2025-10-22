@@ -6,6 +6,8 @@ import { SignInButton,
   SignedIn,
   SignedOut,
   UserButton,} from "@clerk/nextjs"
+import Link from "next/link";
+import { LayoutDashboardIcon } from "lucide-react";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -56,6 +58,14 @@ export default function Navbar() {
           {/* Desktop Action Buttons */}
           <div className="hidden md:flex items-center space-x-2">
               <SignedIn>
+                 <Link href={"/dashboard"}>
+                    <Button>
+                      <LayoutDashboardIcon className="mr-2 h-4 w-4" />
+                      <span className="hidden md:inline cursor-pointer hover:text-white">
+                        Dashboard
+                      </span>
+                    </Button>
+                  </Link>
                 <UserButton/>
               </SignedIn>
               <SignedOut>
