@@ -2,12 +2,11 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,} from "@clerk/nextjs"
+import { useStoreUser } from "@/hooks/use-store-user";
+import { SignInButton ,UserButton, SignUpButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { LayoutDashboardIcon } from "lucide-react";
+import { Authenticated, Unauthenticated } from "convex/react";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -18,7 +17,7 @@ export default function Navbar() {
       setIsMenuOpen(false);
     }
   };
-
+  const { isLoading } = useStoreUser();
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,24 +56,37 @@ export default function Navbar() {
 
           {/* Desktop Action Buttons */}
           <div className="hidden md:flex items-center space-x-2">
-              <SignedIn>
-                 <Link href={"/dashboard"}>
-                    <Button>
-                      <LayoutDashboardIcon className="mr-2 h-4 w-4" />
-                      <span className="hidden md:inline cursor-pointer hover:text-white">
-                        Dashboard
-                      </span>
-                    </Button>
-                  </Link>
-                <UserButton/>
-              </SignedIn>
-              <SignedOut>
-                <SignInButton >
-                  <button  className="font-medium px-3 py-2 rounded-3xl hover:bg-sky-400 hover:text-gray-900">
+            <Authenticated>
+              <Link href={"/dashboard"}>
+                <Button className="font-medium px-3 py-2 rounded-3xl hover:bg-sky-400 hover:text-gray-900">
+                  <LayoutDashboardIcon className="mr-2 h-4 w-4" />
+                  <span className="hidden md:inline cursor-pointer hover:text-white">
+                    Dashboard
+                  </span>
+                </Button>
+              </Link>
+             <UserButton appearance={{
+                  elements: {
+                    userButtonAvatarBox: {
+                      width: "2.4rem",
+                      height: "2.4rem",
+                    },
+                  },
+                }} />
+            </Authenticated>
+
+            <Unauthenticated>
+              <SignInButton>
+                <button className="font-medium px-3 py-2 rounded-3xl hover:bg-sky-400 hover:text-gray-900">
+                  Log In
+                </button>
+              </SignInButton>
+              <SignUpButton>
+                <button className="font-medium px-3 py-2 rounded-3xl hover:bg-sky-400 hover:text-gray-900">
                   Get Started for free...
-                  </button>
-                </SignInButton>
-              </SignedOut>
+                </button>
+              </SignUpButton>
+            </Unauthenticated>
           </div>
 
           {/* Mobile Menu Button */}
@@ -121,6 +133,7 @@ export default function Navbar() {
           </div>
         )}
       </nav>
+      {isLoading}
     </header>
   );
 }

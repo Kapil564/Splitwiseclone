@@ -9,6 +9,7 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -22,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/ConvexClientProvider.jsx", "convex/users.js", "convex/auth.config.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/ConvexClientProvider.jsx", "convex/users.js", "convex/auth.config.ts", "lib/inngest/functions.js", "app/api/inngest/route.ts", "lib/inngest/client.ts", "app/dashboard/layout.jsx", "app/dashboard/contacts/page.jsx", "components/Contactlayout.jsx", "components/ui/sonner.jsx"],
   "exclude": ["node_modules"]
 }
