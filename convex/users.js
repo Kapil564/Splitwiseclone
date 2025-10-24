@@ -89,7 +89,6 @@ export const searchUsers = query({
         (email) => !nameResults.some((name) => name._id === email._id)
       ),
     ];
-    console.log("Search results:", users);
     // Exclude current user and format results
     return users
       .filter((user) => user._id !== currentUser._id)
