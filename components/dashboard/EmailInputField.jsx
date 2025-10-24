@@ -5,16 +5,6 @@ import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { X, Mail } from "lucide-react";
 
-interface EmailInputFieldProps {
-  id: string;
-  value: string;
-  isValid: boolean;
-  index: number;
-  showRemove: boolean;
-  onUpdate: (id: string, value: string) => void;
-  onRemove: (id: string) => void;
-}
-
 export function EmailInputField({
   id,
   value,
@@ -23,7 +13,7 @@ export function EmailInputField({
   showRemove,
   onUpdate,
   onRemove,
-}: EmailInputFieldProps) {
+}) {
   return (
     <div className="space-y-2">
       <Label htmlFor={`email-${id}`} className="flex items-center gap-2">

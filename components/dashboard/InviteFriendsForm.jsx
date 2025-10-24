@@ -6,14 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../ui
 import { EmailInputField } from "./EmailInputField";
 import { Send, UserPlus } from "lucide-react";
 
-interface EmailEntry {
-  id: string;
-  value: string;
-  isValid: boolean;
-}
 
 export function InviteFriendsForm() {
-  const [emails, setEmails] = useState<EmailEntry[]>([
+  const [emails, setEmails] = useState([
     { id: "1", value: "", isValid: true },
   ]);
   const [isSending, setIsSending] = useState(false);
@@ -23,13 +18,13 @@ export function InviteFriendsForm() {
     setEmails([...emails, { id: newId, value: "", isValid: true }]);
   };
 
-  const removeEmailField = (id: string) => {
+  const removeEmailField = (id) => {
     if (emails.length > 1) {
       setEmails(emails.filter((email) => email.id !== id));
     }
   };
 
-  const updateEmail = (id: string, value: string) => {
+  const updateEmail = (id, value) => {
     setEmails(
       emails.map((email) =>
         email.id === id
@@ -39,7 +34,7 @@ export function InviteFriendsForm() {
     );
   };
 
-  const validateEmail = (email: string): boolean => {
+  const validateEmail = (email) => {
     if (email === "") return true;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
