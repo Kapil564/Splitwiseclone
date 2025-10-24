@@ -75,9 +75,11 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-3xl blur-2xl"></div>
             <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl border border-border">
               <Image
-                src="https://images.unsplash.com/photo-1655807286510-a49644c29ef9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTAwNDR8MHwxfHNlYXJjaHwzfHxmaW5hbmNpYWwlMjBkYXNoYm9hcmQlMjBtb2JpbGUlMjBhcHAlMjBwZW9wbGUlMjBtb25leXxlbnwwfDB8fGJsdWV8MTc2MDkwNDg0MXww&ixlib=rb-4.1.0&q=85"
+                src="/images/image.jpg"
                 alt="Modern financial dashboard illustration - Mariia Shalabaieva on Unsplash"
                 className="w-full h-full object-cover"
+                height={800}
+                width={800}
               />
             </div>
           </div>
