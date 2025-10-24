@@ -13,7 +13,6 @@ export const sendEmail = action({
   },
   handler: async (ctx, args) => {
     const resend = new Resend(args.apiKey);
-
     try {
       const result = await resend.emails.send({
         from: "Splitr@clone.splitwise.com",
