@@ -40,7 +40,7 @@ export default function AboutUs() {
             Trusted by Millions <span className="gradient-text">Worldwide</span>
           </h2>
           <p className="body-lg text-foreground/70 max-w-3xl mx-auto">
-            Since 2012, we've been helping people split expenses fairly and
+            Since 2012, we&apos;ve been helping people split expenses fairly and
             transparently. From roommates to travelers, our platform has
             facilitated billions in shared expenses.
           </p>
@@ -76,8 +76,8 @@ export default function AboutUs() {
               <h3 className="heading-md text-foreground">Our Story</h3>
               <p className="body-md text-foreground/70">
                 What started as a simple tool for college roommates has grown
-                into the world's most popular expense sharing platform. We
-                believe that money shouldn't complicate relationships, and our
+                into the world&apos;s most popular expense sharing platform. We
+                believe that money shouldn&apos;t complicate relationships, and our
                 mission is to keep things simple, fair, and transparent.
               </p>
               <p className="body-md text-foreground/70">
