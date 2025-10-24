@@ -9,13 +9,17 @@ export const sendEmail = action({
     subject: v.string(),
     html: v.string(),
     text: v.optional(v.string()),
-    apiKey: v.string(),
+    apikey: v.optional(v.object({})),
   },
   handler: async (ctx, args) => {
-    const resend = new Resend(args.apiKey);
+    const takeapikey=process.env.RESEND_API_KEY
+    if(!takeapikey){
+      return { success: false, error: "RESEND_API_KEY could not fetch" };
+    }
+    const resend = new Resend(takeapikey || args.apikey);
     try {
       const result = await resend.emails.send({
-        from: "Splitr@clone.splitwise.com",
+        from: "Acme <onboarding@resend.dev>",
         to: args.to,
         subject: args.subject,
         html: args.html,

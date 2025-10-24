@@ -68,11 +68,11 @@ export function Sidebar() {
               <p className="text-xs text-muted-foreground">
                 Share expenses with friends and family
               </p>
-                <Link href="/dashboard/invite-friends">
+                <Link href="/invite-friends">
                   <Button 
                     className="w-full" 
                     size="sm"
-                    onClick={() => router.push("/dashboard/invite-friends")}
+                    onClick={() => router.push("/invite-friends")}
                   >
                     <Send className="h-4 w-4 mr-2" />
                     Send Invite

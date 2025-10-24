@@ -5,8 +5,7 @@ import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../ui/card";
 import { EmailInputField } from "./EmailInputField";
 import { Send, UserPlus } from "lucide-react";
-
-
+import { sendEmail } from "@/convex/email";
 export function InviteFriendsForm() {
   const [emails, setEmails] = useState([
     { id: "1", value: "", isValid: true },
@@ -39,7 +38,6 @@ export function InviteFriendsForm() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-
   const handleSendInvites = async () => {
     const validEmails = emails.filter(
       (email) => email.value !== "" && email.isValid
@@ -49,17 +47,31 @@ export function InviteFriendsForm() {
       alert("Please enter at least one valid email address");
       return;
     }
-
     setIsSending(true);
-    
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    setIsSending(false);
-    alert(`Invitations sent to ${validEmails.length} email(s)!`);
-    
-    // Reset form
-    setEmails([{ id: "1", value: "", isValid: true }]);
+     try {
+      for (const e of validEmails) {
+        const args={
+          to: e.value,
+          subject: "You're invited to join Splitr 🎉",
+          html: `
+            <h2>Hey there!</h2>
+            <p>You've been invited to join our Splitr app. Click below to accept the invite.</p>
+            <a href="https://splitwiseclone.vercel.app/">Join Now</a>
+          `,
+          text: `You've been invited to join Splitr. Visit https://splitwiseclone.vercel.app/ to accept the invite.`,
+        }
+        const response = await sendEmail(args);
+        console.log(`Email to ${e.value}:`, response);
+      }
+
+      alert(`Invitations sent to ${validEmails.length} email(s)!`);
+    } catch (error) {
+      console.error("Error sending invites:", error);
+      alert("Failed to send invites. Please try again.");
+    } finally {
+      setIsSending(false);
+      setEmails([{ id: "1", value: "", isValid: true }]);
+    }
   };
 
   const canSend = emails.some((email) => email.value !== "" && email.isValid);

@@ -1,6 +1,5 @@
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { InviteFriendsForm } from "@/components/dashboard/InviteFriendsForm";
-
 export default function InviteFriendsPage() {
   return (
     <DashboardLayout>
@@ -12,7 +11,6 @@ export default function InviteFriendsPage() {
               Share Splitwise with your friends and start splitting expenses together
             </p>
           </div>
-          
           <InviteFriendsForm />
         </div>
       </div>

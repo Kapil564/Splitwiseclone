@@ -75,7 +75,7 @@ export function DashboardLayout({ children }) {
 
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <Button asChild className="w-full sm:w-auto">
-                      <Link href="/dashboard/invite-friends">Invite friends</Link>
+                      <Link href="/invite-friends">Invite friends</Link>
                     </Button>
 
                     <Button variant="outline" asChild className="w-full sm:w-auto">
