@@ -2,21 +2,26 @@
 import { useConvexQuery } from "@/hooks/use-convex-query";
 import { api } from "@/convex/_generated/api";
 import { BarLoader } from "react-spinners";
-import Navbar from "@/app/Navbar/page";
+import {Navbar} from "@/components/dashboard/Navbar";
 import Link from "next/link";
 import { Sidebar } from "@/components/dashboard/Sidebar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/newCard";
 import { Plus, User, Users } from "lucide-react";
+import { CreateGroupModal } from "./_components/create-group-modal";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/newavatar";
 export default function ContactsPage() {
   const { data, isLoading } = useConvexQuery(api.contacts.getAllContacts);
   const [isCreateGroupModalOpen, setIsCreateGroupModalOpen] = useState(false);
 
+  const router = useRouter();
+
+
   if (isLoading) {
     return (
-      <div>
+      <div className="">
         <Navbar />
         <Sidebar />
         <div className="min-h-screen bg-background">
@@ -30,7 +35,7 @@ export default function ContactsPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar/>
       <Sidebar />
       <main className="ml-64 pt-16">
         <div className="flex flex-col sm:flex-row sm:items-center  p-6 gap-4 justify-between mb-6">
@@ -121,6 +126,12 @@ export default function ContactsPage() {
             )}
           </div>
         </div>
+        {/* Create Group Modal */}
+        <CreateGroupModal 
+        isOpen={isCreateGroupModalOpen} 
+        onClose={() => setIsCreateGroupModalOpen(false)}
+        onSuccess={(groupId) => router.push(`/groups/${groupId}`)}
+         />
       </main>
     </div>
   );

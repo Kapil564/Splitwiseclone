@@ -1,14 +1,16 @@
-import { useEffect ,useState} from "react";
+import { useQuery, useMutation } from "convex/react";
+import { useState, useEffect } from "react";
 import { toast } from "sonner";
-import { useQuery } from "convex/react";
-export const useConvexQuery = (query, ...args) => {
-    const result = useQuery(query, ...args);
-    const [data, setData] = useState(undefined);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
 
-    useEffect(() => {
-         if (result === undefined) {
+export const useConvexQuery = (query, ...args) => {
+  const result = useQuery(query, ...args);
+  const [data, setData] = useState(undefined);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Use effect to handle the state changes based on the query result
+  useEffect(() => {
+    if (result === undefined) {
       setIsLoading(true);
     } else {
       try {
@@ -21,17 +23,22 @@ export const useConvexQuery = (query, ...args) => {
         setIsLoading(false);
       }
     }
-    },[result])
-    return { data, isLoading, error };
-}
+  }, [result]);
+
+  return {
+    data,
+    isLoading,
+    error,
+  };
+};
 
 export const useConvexMutation = (mutation) => {
-    const mutationFn = useQuery(mutation);
-    const [data, setData] = useState(undefined);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const mutationFn = useMutation(mutation);
+  const [data, setData] = useState(undefined);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-      const mutate = async (...args) => {
+  const mutate = async (...args) => {
     setIsLoading(true);
     setError(null);
 
@@ -49,7 +56,4 @@ export const useConvexMutation = (mutation) => {
   };
 
   return { mutate, data, isLoading, error };
-}
-   
-   
-
+};
