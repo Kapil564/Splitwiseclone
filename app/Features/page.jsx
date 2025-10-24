@@ -4,7 +4,8 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {Calculator,Bell,Users,Smartphone,Shield, Globe,TrendingUp,CreditCard,} from "lucide-react";
-
+import { SignUpButton } from "@clerk/nextjs";
+import { ArrowRight, Sparkles } from "lucide-react";
 export default function Features() {
   const features = [
     {
@@ -120,12 +121,18 @@ export default function Features() {
                 required.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <SignUpButton>
                 <Button
-                  size="lg"
-                  className="font-semibold bg-primary hover:bg-primary-dark text-white"
-                >
-                  Get Started for Free
-                </Button>
+                size="lg"
+                className="font-semibold bg-primary hover:bg-primary-dark hover:cursor-pointer text-white group"
+              >
+                Get Started for Free
+                <ArrowRight
+                  size={20}
+                  className="ml-2 group-hover:translate-x-1 transition-transform"
+                />
+              </Button>
+              </SignUpButton>
               </div>
             </div>
           </div>

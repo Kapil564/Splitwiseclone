@@ -1,5 +1,4 @@
 "use client";
-import { ReactNode } from "react";
 import { Navbar } from "./Navbar";
 import { Sidebar } from "./Sidebar";
 import { BarLoader } from "react-spinners";
@@ -12,20 +11,17 @@ import {
   CardFooter,
   CardTitle,
 } from "../ui/newCard";
-import { PlusCircle, Users, CreditCard, ChevronRight } from "lucide-react";
+import { PlusCircle, Users, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ExpenseSummary } from "./dasboardComponents/expense-summery";
 import { BalanceSummary } from "./dasboardComponents/balance-summery";
 import { GroupList } from "./dasboardComponents/group-list";
-import { get } from "http";
-import { getUserBalances } from "@/convex/dashboard";
 export function DashboardLayout({ children }) {
   const { data: balances, isLoading: balancesLoading } = useConvexQuery(
     api.dashboard.getUserBalances
    
   );
-   console.log(data)
 
   const { data: groups, isLoading: groupsLoading } = useConvexQuery(
     api.dashboard.getUserGroups

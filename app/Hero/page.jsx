@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Image from "next/image";
-
+import { SignUpButton } from "@clerk/nextjs";
 export default function Hero() {
   return (
     <section
@@ -38,9 +38,10 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
+              <SignUpButton>
+                <Button
                 size="lg"
-                className="font-semibold bg-primary hover:bg-primary-dark text-white group"
+                className="font-semibold bg-primary hover:bg-primary-dark hover:cursor-pointer text-white group"
               >
                 Get Started for Free
                 <ArrowRight
@@ -48,6 +49,8 @@ export default function Hero() {
                   className="ml-2 group-hover:translate-x-1 transition-transform"
                 />
               </Button>
+              </SignUpButton>
+              
               <Button size="lg" variant="outline" className="font-semibold">
                 Watch Demo
               </Button>
