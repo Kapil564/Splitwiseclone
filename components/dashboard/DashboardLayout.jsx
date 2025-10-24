@@ -40,6 +40,16 @@ export function DashboardLayout({ children }) {
     totalSpentLoading ||
     monthlySpendingLoading;
 
+  // Determine if this appears to be a brand-new user with no data
+  const isNewUser =
+    !isLoading &&
+    (!balances ||
+      ((balances.totalBalance === 0 || balances.totalBalance == null) &&
+        (balances.youAreOwed === 0 || balances.youAreOwed == null) &&
+        (balances.youOwe === 0 || balances.youOwe == null))) &&
+    (!groups || groups.length === 0) &&
+    (!totalSpent || totalSpent === 0);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -53,6 +63,30 @@ export function DashboardLayout({ children }) {
             {isLoading ? (
               <div>
                 <BarLoader color="#4A90E2" width="100%" />
+              </div>
+            ) : isNewUser ? (
+              <div className="max-w-3xl mx-auto mt-12">
+                <div className="bg-card border rounded-lg p-8 text-center">
+                  <h3 className="text-2xl font-semibold mb-2">Welcome to Splitr 🎉</h3>
+                  <p className="text-sm text-muted-foreground mb-6">
+                    It looks like you haven't added any expenses or invited friends yet.
+                    Start by inviting someone or adding your first expense.
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                    <Button asChild className="w-full sm:w-auto">
+                      <Link href="/dashboard/invite-friends">Invite friends</Link>
+                    </Button>
+
+                    <Button variant="outline" asChild className="w-full sm:w-auto">
+                      <Link href="/expenses/new">Add first expense</Link>
+                    </Button>
+
+                    <Button variant="ghost" asChild className="w-full sm:w-auto">
+                      <Link href="/contacts?createGroup=true">Create a group</Link>
+                    </Button>
+                  </div>
+                </div>
               </div>
             ) : (
               <>
@@ -81,7 +115,7 @@ export function DashboardLayout({ children }) {
                               +₹{balances?.totalBalance.toFixed(2)}
                             </span>
                           </div>
-                        ) : balances?.totalBalance < 0 ? (
+                        ) : balances?.totalBalance <= 0 ? (
                           <span className="text-red-600">
                             -₹{Math.abs(balances?.totalBalance).toFixed(2)}
                           </span>
