@@ -19,7 +19,7 @@ import Link from "next/link";
 const menuItems = [
   { icon: Home, label: "Dashboard", href: "/dashboard" },
   { icon: Users, label: "Contacts", href: "/dashboard/contacts" },
-  { icon: Receipt, label: "Expenses", href: "/dashboard/expenses" },
+  { icon: Receipt, label: "Expenses", href: "/expenses/new" },
   { icon: TrendingUp, label: "Activity", href: "/dashboard/activity" },
   { icon: Settings, label: "Settings", href: "/dashboard/settings" },
 ];
