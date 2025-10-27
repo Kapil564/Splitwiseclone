@@ -40,7 +40,7 @@
   --sidebar-accent-foreground: oklch(0.21 0.034 264.665);
   --sidebar-border: oklch(0.928 0.006 264.531);
   --sidebar-ring: oklch(0.707 0.022 261.325);
-  --background: oklch(83.753% 0.02505 283.269);
+  --background: oklch(30.491% 0.07315 277.974);
   --foreground: oklch(73.603% 0.00577 286.048);
 }
 
@@ -160,7 +160,7 @@ html {
   /* Make the gradient apply to the text glyphs rather than the element box.
      Ensure the element using this utility contains only text (or is inline-block)
      so the clipped background aligns with the text. */
-  /* background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 70%); */
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 70%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent; /* fallback for non-WebKit browsers */
