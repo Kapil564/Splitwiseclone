@@ -37,7 +37,7 @@ export default function AboutUs() {
             About Us
           </Badge>
           <h2 className="heading-lg text-foreground">
-            Trusted by Millions <span className="gradient-text">Worldwide</span>
+            Trusted by Millions <span>Worldwide</span>
           </h2>
           <p className="body-lg text-foreground/70 max-w-3xl mx-auto">
             Since 2012, we&apos;ve been helping people split expenses fairly and
@@ -88,19 +88,19 @@ export default function AboutUs() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-background rounded-2xl p-6 border border-border">
-                <div className="text-4xl font-bold gradient-text mb-2">12+</div>
+                <div className="text-4xl font-bold text-primary mb-2">12+</div>
                 <div className="text-sm text-foreground/60">Years of Service</div>
               </div>
               <div className="bg-background rounded-2xl p-6 border border-border">
-                <div className="text-4xl font-bold gradient-text mb-2">99.9%</div>
+                <div className="text-4xl font-bold text-primary mb-2">99.9%</div>
                 <div className="text-sm text-foreground/60">Uptime</div>
               </div>
               <div className="bg-background rounded-2xl p-6 border border-border">
-                <div className="text-4xl font-bold gradient-text mb-2">24/7</div>
+                <div className="text-4xl font-bold text-primary mb-2">24/7</div>
                 <div className="text-sm text-foreground/60">Support</div>
               </div>
               <div className="bg-background rounded-2xl p-6 border border-border">
-                <div className="text-4xl font-bold gradient-text mb-2">4.8★</div>
+                <div className="text-4xl font-bold text-primary mb-2">4.8★</div>
                 <div className="text-sm text-foreground/60">User Rating</div>
               </div>
             </div>

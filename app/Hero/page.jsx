@@ -29,7 +29,7 @@ export default function Hero() {
 
             <h1 className="heading-xl text-foreground">
               Share Expenses{" "}
-              <span className="gradient-text">Made Simple</span>
+              <span>Made Simple</span>
             </h1>
 
             <p className="body-lg text-foreground/70 max-w-xl">

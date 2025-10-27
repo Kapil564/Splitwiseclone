@@ -48,7 +48,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           {/* Brand Section */}
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-2xl font-bold gradient-text">Splitwise</h3>
+            <h3 className="text-2xl font-bold text-foreground">Splitwise</h3>
             <p className="body-md text-foreground/70 max-w-sm">
               The easiest way to share expenses with friends and family. Track,
               split, and settle up with ease.

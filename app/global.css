@@ -160,12 +160,13 @@ html {
   /* Make the gradient apply to the text glyphs rather than the element box.
      Ensure the element using this utility contains only text (or is inline-block)
      so the clipped background aligns with the text. */
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 70%);
-  -webkit-background-clip: text;
+  /* background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 70%); */
   background-clip: text;
-  color: transparent; /* fallback for non-WebKit browsers */
-  -webkit-text-fill-color: transparent; /* Safari/Chrome */
-  display: inline-block; /* helps when applied to elements with padding/margins */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline;
+  line-height: inherit;
 }
 
 @utility glass-effect {

@@ -11,7 +11,7 @@ export function Navbar() {
       <div className="h-full px-6 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <span className="heading-md px-2 gradient-text">Splitwise</span>
+          <span className="heading-md px-2 text-foreground">Splitwise</span>
         </div>
 
         {/* Right side - Dashboard button and User button */}

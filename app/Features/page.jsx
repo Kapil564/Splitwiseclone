@@ -75,7 +75,7 @@ export default function Features() {
           </Badge>
           <h2 className="heading-lg text-foreground">
             Everything You Need to{" "}
-            <span className="gradient-text">Split Smart</span>
+            <span>Split Smart</span>
           </h2>
           <p className="body-lg text-foreground/70 max-w-3xl mx-auto">
             Powerful features designed to make expense sharing effortless,

@@ -26,7 +26,7 @@ export default function Navbar() {
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection("home")}
-              className="text-2xl font-bold gradient-text"
+              className="text-2xl font-bold text-foreground"
             >
               Splitwise
             </button>
@@ -133,7 +133,6 @@ export default function Navbar() {
           </div>
         )}
       </nav>
-      {isLoading}
     </header>
   );
 }
