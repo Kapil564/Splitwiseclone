@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --primary: oklch(42.262% 0.02352 262.889);
+  --primary: oklch(30.505% 0.05364 260.452);
   --primary-dark: #2563eb;
   --secondary: oklch(22.632% 0.02519 263.889);
   --accent: oklch(0.967 0.003 264.542);
