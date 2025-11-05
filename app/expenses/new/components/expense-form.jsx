@@ -174,7 +174,7 @@ export function ExpenseForm({ type = "individual", onSuccess }) {
             <Label htmlFor="amount">Amount</Label>
             <Input
               id="amount"
-              placeholder="0.00"
+              placeholder="₹0.00"
               type="number"
               step="0.01"
               min="0.01"
@@ -332,7 +332,7 @@ export function ExpenseForm({ type = "individual", onSuccess }) {
                 amount={parseFloat(amountValue) || 0}
                 participants={participants}
                 paidByUserId={paidByUserId}
-                onSplitsChange={setSplits} // Use setSplits directly
+                onSplitsChange={setSplits} 
               />
             </TabsContent>
             <TabsContent value="exact" className="pt-4">

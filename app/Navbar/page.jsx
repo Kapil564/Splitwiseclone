@@ -19,7 +19,7 @@ export default function Navbar() {
   };
   const { isLoading } = useStoreUser();
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 glass-effect-strong border-b border-primary/20">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -28,7 +28,7 @@ export default function Navbar() {
               onClick={() => scrollToSection("home")}
               className="text-2xl font-bold text-foreground"
             >
-              Splitwise
+              BillBuddy
             </button>
           </div>
 
@@ -58,9 +58,9 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-2">
             <Authenticated>
               <Link href={"/dashboard"}>
-                <Button className="font-medium px-3 py-2 rounded-3xl hover:bg-sky-400 hover:text-gray-900">
+                <Button className="font-bold px-3 py-2 rounded-3xl bg-primary hover:bg-primary-dark text-primary-foreground hover:scale-105 transition-all">
                   <LayoutDashboardIcon className="mr-2 h-4 w-4" />
-                  <span className="hidden md:inline cursor-pointer hover:text-white">
+                  <span className="hidden md:inline cursor-pointer">
                     Dashboard
                   </span>
                 </Button>
@@ -77,13 +77,13 @@ export default function Navbar() {
 
             <Unauthenticated>
               <SignInButton>
-                <button className="font-medium px-3 py-2 rounded-3xl hover:bg-sky-400 hover:text-gray-900">
+                <button className="font-bold px-3 py-2 rounded-3xl hover:bg-muted/50 transition-all">
                   Log In
                 </button>
               </SignInButton>
               <SignUpButton>
-                <button className="font-medium px-3 py-2 rounded-3xl hover:bg-sky-400 hover:text-gray-900">
-                  Get Started for free...
+                <button className="font-bold px-3 py-2 rounded-3xl bg-primary hover:bg-primary-dark text-primary-foreground hover:scale-105 transition-all">
+                  Get Started for Free
                 </button>
               </SignUpButton>
             </Unauthenticated>
@@ -123,12 +123,16 @@ export default function Navbar() {
               Features
             </button>
             <div className="flex flex-col space-y-2 px-4 pt-4 border-t border-border">
-              <Button variant="ghost" className="w-full font-medium">
-                Log In
-              </Button>
-              <Button className="w-full font-medium bg-primary hover:bg-primary-dark">
-                Get Started for Free
-              </Button>
+              <SignInButton>
+                <button className="w-full font-bold px-3 py-2 rounded-lg hover:bg-muted/50 transition-all">
+                  Log In
+                </button>
+              </SignInButton>
+              <SignUpButton>
+                <button className="w-full font-bold px-3 py-2 rounded-lg bg-primary hover:bg-primary-dark text-primary-foreground transition-all">
+                  Get Started for Free
+                </button>
+              </SignUpButton>
             </div>
           </div>
         )}

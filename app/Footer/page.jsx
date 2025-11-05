@@ -42,13 +42,19 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-muted/50 border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="relative bg-transparent border-t border-primary/20 overflow-hidden">
+      {/* Luxurious Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-primary/5 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-secondary/5 via-transparent to-accent/5"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-primary/20 to-transparent rounded-full blur-3xl animate-float-slow"></div>
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-bl from-secondary/20 to-transparent rounded-full blur-3xl animate-float-slow delay-500"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           {/* Brand Section */}
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-2xl font-bold text-foreground">Splitwise</h3>
+            <h3 className="text-2xl font-bold text-foreground">BillBuddy</h3>
             <p className="body-md text-foreground/70 max-w-sm">
               The easiest way to share expenses with friends and family. Track,
               split, and settle up with ease.
@@ -56,7 +62,7 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-sm text-foreground/70">
                 <Mail size={16} />
-                <span>support@splitwise.com</span>
+                <span>support@BillBuddy.com</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-foreground/70">
                 <Phone size={16} />
@@ -126,7 +132,7 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-foreground/60">
-            © 2024 Splitwise. All rights reserved.
+            © 2024 BillBuddy. All rights reserved.
           </p>
 
           {/* Social Links */}

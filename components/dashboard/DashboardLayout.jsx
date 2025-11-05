@@ -141,7 +141,7 @@ export function DashboardLayout({ children }) {
                     </CardHeader>
                     <CardContent>
                       <div className="text-2xl font-bold text-green-600">
-                        ${balances?.youAreOwed.toFixed(2)}
+                        ₹	{balances?.youAreOwed.toFixed(2)}
                       </div>
                       <p className="text-xs text-muted-foreground mt-1">
                         From {balances?.oweDetails?.youAreOwedBy?.length || 0}{" "}
@@ -160,7 +160,7 @@ export function DashboardLayout({ children }) {
                       {balances?.oweDetails?.youOwe?.length > 0 ? (
                         <>
                           <div className="text-2xl font-bold text-red-600">
-                            ${balances?.youOwe.toFixed(2)}
+                            ₹{balances?.youOwe.toFixed(2)}
                           </div>
                           <p className="text-xs text-muted-foreground mt-1">
                             To {balances?.oweDetails?.youOwe?.length || 0}{" "}
@@ -169,7 +169,7 @@ export function DashboardLayout({ children }) {
                         </>
                       ) : (
                         <>
-                          <div className="text-2xl font-bold">$0.00</div>
+                          <div className="text-2xl font-bold">₹0.00</div>
                           <p className="text-xs text-muted-foreground mt-1">
                             You don't owe anyone
                           </p>
