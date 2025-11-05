@@ -52,13 +52,13 @@ export function InviteFriendsForm() {
       for (const e of validEmails) {
         const args={
           to: e.value,
-          subject: "You're invited to join Splitr 🎉",
+          subject: "You're invited to join BillBuddy 🎉",
           html: `
             <h2>Hey there!</h2>
-            <p>You've been invited to join our Splitr app. Click below to accept the invite.</p>
+            <p>You've been invited to join our BillBuddy app. Click below to accept the invite.</p>
             <a href="https://splitwiseclone.vercel.app/">Join Now</a>
           `,
-          text: `You've been invited to join Splitr. Visit https://splitwiseclone.vercel.app/ to accept the invite.`,
+          text: `You've been invited to join BillBuddy. Visit https://splitwiseclone.vercel.app/ to accept the invite.`,
         }
         const response = await sendEmail(args);
         console.log(`Email to ${e.value}:`, response);
@@ -84,7 +84,7 @@ export function InviteFriendsForm() {
           Send Invitations
         </CardTitle>
         <CardDescription>
-          Enter email addresses of friends you want to invite to Splitwise
+          Enter email addresses of friends you want to invite to BillBuddy
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -127,7 +127,7 @@ export function InviteFriendsForm() {
         <div className="p-4 rounded-lg bg-muted/50 border border-border">
           <p className="text-sm text-muted-foreground">
             <strong>Tip:</strong> Your friends will receive an email invitation
-            to join Splitwise and can start sharing expenses with you right away.
+            to join BillBuddy and can start sharing expenses with you right away.
           </p>
         </div>
       </CardContent>

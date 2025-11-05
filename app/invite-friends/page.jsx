@@ -8,7 +8,7 @@ export default function InviteFriendsPage() {
           <div>
             <h1 className="heading-lg">Invite Friends</h1>
             <p className="body-md text-muted-foreground mt-2">
-              Share Splitwise with your friends and start splitting expenses together
+              Share BillBuddy with your friends and start splitting expenses together
             </p>
           </div>
           <InviteFriendsForm />

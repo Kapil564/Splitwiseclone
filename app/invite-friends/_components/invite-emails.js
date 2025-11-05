@@ -15,13 +15,13 @@ export const InviteEmails = ({ email }) => {
 
       const response = await sendEmail({
         to: email,
-        subject: "You're invited to join Splitr 🎉",
+        subject: "You're invited to join BillBuddy 🎉",
         html: `
           <h2>Hey there!</h2>
-          <p>You've been invited to join our Splitr app. Click below to accept the invite.</p>
+          <p>You've been invited to join our BillBuddy app. Click below to accept the invite.</p>
           <a href="https://splitwiseclone.vercel.app/">Join Now</a>
         `,
-        text: `You've been invited to join Splitr. Visit https://your-app-domain.com to accept the invite.`,
+        text: `You've been invited to join BillBuddy. Visit https://your-app-domain.com to accept the invite.`,
         apiKey: process.env.NEXT_PUBLIC_RESEND_API_KEY, // or pass it from server
       });
 
