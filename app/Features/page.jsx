@@ -70,9 +70,9 @@ export default function Features() {
     },
     {
       icon: Globe,
-      title: "Multi-Currency",
+      title: "Currency Support",
       description:
-        "Travel internationally? We support 150+ currencies with real-time exchange rates.",
+        "Travel internationally? We support currently inr currencies with real-time exchange rates.",
       color: "accent",
     },
     {
@@ -158,7 +158,7 @@ export default function Features() {
                 Ready to <span className="gradient-text">Simplify</span> Your Expenses?
               </h3>
               <p className="body-lg text-foreground/80 max-w-2xl mx-auto">
-                Join millions of users who trust Splitwise to manage their
+                Join millions of users who trust BillBuddy to manage their
                 shared expenses. Get started in seconds, no credit card
                 required.
               </p>

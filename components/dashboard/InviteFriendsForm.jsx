@@ -2,14 +2,19 @@
 
 import { useState } from "react";
 import { Button } from "../ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "../ui/card";
 import { EmailInputField } from "./EmailInputField";
 import { Send, UserPlus } from "lucide-react";
-import { sendEmail } from "@/convex/email";
+import { useAction } from "convex/react";
+import { api } from "@/convex/_generated/api";
 export function InviteFriendsForm() {
-  const [emails, setEmails] = useState([
-    { id: "1", value: "", isValid: true },
-  ]);
+  const [emails, setEmails] = useState([{ id: "1", value: "", isValid: true }]);
   const [isSending, setIsSending] = useState(false);
 
   const addEmailField = () => {
@@ -38,7 +43,8 @@ export function InviteFriendsForm() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-  const handleSendInvites = async () => {
+  const handleSendInvites = async (e) => {
+    e.preventDefault();
     const validEmails = emails.filter(
       (email) => email.value !== "" && email.isValid
     );
@@ -48,19 +54,22 @@ export function InviteFriendsForm() {
       return;
     }
     setIsSending(true);
-     try {
+    try {
       for (const e of validEmails) {
-        const args={
-          to: e.value,
-          subject: "You're invited to join BillBuddy 🎉",
-          html: `
-            <h2>Hey there!</h2>
-            <p>You've been invited to join our BillBuddy app. Click below to accept the invite.</p>
-            <a href="https://splitwiseclone.vercel.app/">Join Now</a>
-          `,
-          text: `You've been invited to join BillBuddy. Visit https://splitwiseclone.vercel.app/ to accept the invite.`,
-        }
-        const response = await sendEmail(args);
+        const response = await fetch(`/api/email`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            to: e.value,
+            html: `
+      <h2>Hey there!</h2>
+      <p>You've been invited to join our BillBuddy app. Click below to accept the invite.</p>
+      <a href="https://splitwiseclone.vercel.app/">Join Now</a>
+    `,
+          }),
+        });
         console.log(`Email to ${e.value}:`, response);
       }
 
@@ -113,7 +122,7 @@ export function InviteFriendsForm() {
             <UserPlus className="h-4 w-4" />
             Add Another Email
           </Button>
-          
+
           <Button
             onClick={handleSendInvites}
             disabled={!canSend || isSending}
@@ -127,7 +136,8 @@ export function InviteFriendsForm() {
         <div className="p-4 rounded-lg bg-muted/50 border border-border">
           <p className="text-sm text-muted-foreground">
             <strong>Tip:</strong> Your friends will receive an email invitation
-            to join BillBuddy and can start sharing expenses with you right away.
+            to join BillBuddy and can start sharing expenses with you right
+            away.
           </p>
         </div>
       </CardContent>
