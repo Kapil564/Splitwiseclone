@@ -1,4 +1,4 @@
-# Splitr — BillBuddy clone
+#  BillBuddy 
 
 A small Next.js + Convex app for splitting expenses, with email invites and Inngest tasks. This repository is a student project that demonstrates a modern full‑stack app using the Next App Router, Convex for serverless functions & data, and Resend / Nodemailer for email sending.
 
