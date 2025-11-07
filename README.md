@@ -1,4 +1,4 @@
-# Splitr — Splitwise clone
+# Splitr — BillBuddy clone
 
 A small Next.js + Convex app for splitting expenses, with email invites and Inngest tasks. This repository is a student project that demonstrates a modern full‑stack app using the Next App Router, Convex for serverless functions & data, and Resend / Nodemailer for email sending.
 
@@ -48,7 +48,7 @@ Create a `.env.local` file in the repository root for local development (do not 
 Required / recommended variables
 
 - `RESEND_API_KEY` — Resend API key (server-side only). Used by Convex actions to send emails.
-- `EMAIL_USER` / `EMAIL_PASS` — SMTP user/password (optional; for Nodemailer fallback).
+- `EMAIL` / `PASSWORD` — SMTP user/password (optional; for Nodemailer fallback).
 - `CONVEX_DEPLOY_KEY` — Convex deployment key used for `npx convex dev` and deployments.
 - `NEXT_PUBLIC_CONVEX_URL` — Convex cloud URL used by the client (safe to expose).
 - `CLERK_JWT_ISSUER_DOMAIN` — (If Clerk is used) issuer domain for Convex auth.
