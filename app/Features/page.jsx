@@ -158,7 +158,7 @@ export default function Features() {
                 Ready to <span className="gradient-text">Simplify</span> Your Expenses?
               </h3>
               <p className="body-lg text-foreground/80 max-w-2xl mx-auto">
-                Join millions of users who trust BillBuddy to manage their
+                Become a part of the BillBuddy community to manage their
                 shared expenses. Get started in seconds, no credit card
                 required.
               </p>
